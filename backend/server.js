@@ -10,21 +10,13 @@ app.use(express.json())
 const db = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password:   "",
+    password:   "admin",
     database: "ilcapitanos"
 })
 app.get('/', (req, res) => {
     return res.json("from backend");
 })
-app.get('/booking', (req, res) => {
-    const q = "SELECT * FROM booking";
-    db.query(q, (err, data) => {
-        if (err) {
-            return res.json('error');
-        }
-        return res.json(data);
-    })
-})
+
 app.post('/booking', (req, res) => {
     const sql = 'INSERT INTO booking (`first_name`, `last_name`, `email`, `phone`, `no_guests`, `date`, `time`, `message`) VALUES (?)';
     const values = [
@@ -39,11 +31,20 @@ app.post('/booking', (req, res) => {
     ];
     db.query(sql, [values], (err, data) => {
         if (err) {
-            return res.json('error');
+            return res.json(err);
         }
         return res.json(data);
     })
 })
-app.listen(3301, () => {
-    console.log("Server is running on port 3001");
+app.get('/booking', (req, res) => {
+    const q = "SELECT * FROM booking";
+    db.query(q, (err, data) => {
+        if (err) {
+            return res.json('err');
+        }
+        return res.json(data);
+    })
+})
+app.listen(8800, () => {
+    console.log("Server is running on port 8800");
 })
