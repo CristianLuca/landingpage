@@ -18,7 +18,8 @@ app.get('/', (req, res) => {
 })
 
 app.post('/booking', (req, res) => {
-    const sql = 'INSERT INTO booking (`first_name`, `last_name`, `email`, `phone`, `no_guests`, `date`, `time`, `message`) VALUES (?)';
+    const sql = 
+    'INSERT INTO booking (`first_name`, `last_name`, `email`, `phone`, `no_guests`, `date`, `time`, `message`) VALUES (?)';
     const values = [
         req.body.first_name,
         req.body.last_name,

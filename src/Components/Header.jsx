@@ -3,14 +3,7 @@ import '/src/ComponentsCss/Fonts.css'
 import React, { useState } from 'react';
 
 export default function App() {
-  const [showPopup, setShowPopup] = useState(false);
 
-    const handleClick = () => {
-        setShowPopup(true);
-    }
-    const handlePopupClick = () => {
-      setShowPopup(false);
-  }
     return (
       
   <div className="bg-cover" style={{ backgroundImage: `url(${pizza}) `,backgroundPosition: '0 0', height:'45vw'}}>

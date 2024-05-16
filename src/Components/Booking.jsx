@@ -5,14 +5,12 @@ import axios from 'axios';
 
 export default function Booking() {
 const dateInputRef = useRef();
-const [showPopup, setShowPopup] = useState(false);
+
 
 const handleClick = () => {
     setShowPopup(true);
 }
-const handlePopupClick = () => {
-  setShowPopup(false);
-}
+
     useEffect(() => {
         const dateInput = dateInputRef.current;
         dateInput.addEventListener('change', function() {
@@ -67,7 +65,12 @@ const handlePopupClick = () => {
         }
     }
     const [submissionStatus, setSubmissionStatus] = useState('');
+
+    const [showPopup, setShowPopup] = useState(false);
     const bookingFormRef = React.createRef();
+    const handlePopupClick = () => {
+      setShowPopup(false);
+    }
 
     const handleBookTableClick = () => {
       bookingFormRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -76,10 +79,12 @@ const handlePopupClick = () => {
 return (
 <div id='bookTable'>
 <div className='absolute transform -translate-x-1/2 space-x-5' style={{left: '50vw', top: '37.7vw'}}> 
-          <button onClick={handleClick} role="button" className="bg-white hover:bg-gray-300 text-black text-sm px-4 py-2  border rounded-full frank-font " style={{fontSize: '1vw', padding: '0.8vw 2vw'}}>
+          <button onClick={handleClick} role="button" className="bg-white hover:bg-gray-300 text-black text-sm px-4 py-2  border rounded-full frank-font " 
+          style={{fontSize: '1vw', padding: '0.8vw 2vw'}}>
             View Menu</button>
             
-            <button onClick={handleBookTableClick} role="button" className="bg-white hover:bg-gray-300 text-black text-sm px-4 py-2  border rounded-full frank-font" style={{fontSize: '1vw', padding: '0.8vw 2vw'}}>
+            <button onClick={handleBookTableClick} role="button" className="bg-white hover:bg-gray-300 text-black text-sm px-4 py-2  border rounded-full frank-font" 
+            style={{fontSize: '1vw', padding: '0.8vw 2vw'}}>
             Book a Table</button>
           </div>
           {showPopup && 
@@ -112,7 +117,8 @@ return (
                   id="first-name"
                   required
                   autoComplete="given-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset
+                   ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -129,7 +135,8 @@ return (
                   id="last-name"
                   required
                   autoComplete="family-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300
+                   placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -146,7 +153,8 @@ return (
                   type="email"
                   required
                   autoComplete="email"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300
+                   placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -163,7 +171,8 @@ return (
                   name="phone"
                   autoComplete="tel"
                   required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset
+                   ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 >
                   
                 </input>
